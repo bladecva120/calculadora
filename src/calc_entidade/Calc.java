@@ -1,4 +1,4 @@
-package entidade_calc;
+package calc_entidade;
 
 /**
  *
@@ -8,9 +8,13 @@ public class Calc {
 
     public double n1;
     public double n2;
-    
-    public void linha(){
-        System.out.println("-----------------------");
+
+    public void linhaApp() {
+        System.out.println("========================");
+    }
+
+    public void linha() {
+        System.out.println("--------------------------------------------");
     }
 
     public double adição() {
