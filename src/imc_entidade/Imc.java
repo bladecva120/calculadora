@@ -14,8 +14,7 @@ public class Imc {
     public double imcCalc() {
         resultado = peso / Math.pow(altura, 2);
         if (resultado < 17 ){
-            System.out.println("Muito abaixo do peso");
-            
+            System.out.println("Muito abaixo do peso");            
         } else if (resultado >= 17 && resultado <= 18.49){
             System.out.println("Abaixo do peso");
         } else if (resultado >= 18.50 && resultado <= 24.99){
