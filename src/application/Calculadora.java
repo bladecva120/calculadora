@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package application;
 
 /**
@@ -19,13 +15,11 @@ import media_entidade.Media;
 public class Calculadora {
 
     public static void main(String[] args) throws InterruptedException {
-
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         Calc calc = new Calc();
         Tabuada tab = new Tabuada();
         Imc imc = new Imc();
-        Media media = new Media();
         System.out.println("*** JAVA APPLICATION ***");
         calc.linhaApp();
         while (true) {
@@ -48,30 +42,30 @@ public class Calculadora {
                 char resp = sc.next().charAt(0);
                 if (resp == 'a') {
                     calc.linha();
-                    System.out.print("Informe um número: ");
+                    System.out.print("Informe o 1º número: ");
                     calc.n1 = sc.nextDouble();
-                    System.out.print("Informe um número: ");
+                    System.out.print("Informe o 2º número: ");
                     calc.n2 = sc.nextDouble();
                     System.out.printf("Adição: %.2f%n", calc.adição());
                     calc.linha();
                 } else if (resp == 's') {
-                    System.out.print("Informe um número: ");
+                    System.out.print("Informe o 1º número: ");
                     calc.n1 = sc.nextDouble();
-                    System.out.print("Informe um número: ");
+                    System.out.print("Informe o 2º número: ");
                     calc.n2 = sc.nextDouble();
                     System.out.printf("Subtração: %.2f%n", calc.subtração());
                     calc.linha();
                 } else if (resp == 'm') {
-                    System.out.print("Informe um número: ");
+                    System.out.print("Informe o 1º número: ");
                     calc.n1 = sc.nextDouble();
-                    System.out.print("Informe um número: ");
+                    System.out.print("Informe o 2º número: ");
                     calc.n2 = sc.nextDouble();
                     System.out.printf("Multiplicação: %.2f%n", calc.multiplicação());
                     calc.linha();
                 } else if (resp == 'd') {
-                    System.out.print("Informe um número: ");
+                    System.out.print("Informe o 1º número: ");
                     calc.n1 = sc.nextDouble();
-                    System.out.print("Informe um número: ");
+                    System.out.print("Informe o 2º número: ");
                     calc.n2 = sc.nextDouble();
                     System.out.printf("Divisão: %.2f%n", calc.divisão());
                     calc.linha();
@@ -92,12 +86,12 @@ public class Calculadora {
                     tab.adição();
                     calc.linha();
                 } else if (resp == 's') {
-                    System.out.print("Qual tabuada da Subtração que exibir?: ");
+                    System.out.print("Qual tabuada da Subtração quer exibir?: ");
                     tab.n1 = sc.nextInt();
                     tab.subtração();
                     calc.linha();
                 } else if (resp == 'm') {
-                    System.out.print("Qual tabuada da Multiplicação que exibir?: ");
+                    System.out.print("Qual tabuada da Multiplicação quer exibir?: ");
                     tab.n1 = sc.nextInt();
                     tab.multiplicação();
                     calc.linha();
@@ -107,7 +101,6 @@ public class Calculadora {
                     tab.divisão();
                     calc.linha();
                 }
-
             } else if (opc == 3) {
                 calc.linha();
                 System.out.print("Informe seu peso: ");
@@ -119,31 +112,33 @@ public class Calculadora {
                 calc.linha();
             } else if (opc == 4) {
                 calc.linha();
+                double soma = 0;
                 System.out.print("Informe a quantidade de notas: ");
-                media.quant = sc.nextInt();
-                for (int i = 1; i <= media.quant; i++) {
+                int quant = sc.nextInt();
+                for (int i = 1; i <= quant; i++) {
                     System.out.printf("informe a %dª nota: ", i);
-                    media.n1 = sc.nextDouble();
-                    media.soma += media.n1;
+                    double n1 = sc.nextDouble();
+                    soma += n1;
                 }
+                Media media = new Media(quant, soma);
                 System.out.printf("Média de notas: %.2f%n", media.calcMedia());
                 calc.linha();
             } else if (opc == 0) {
                 calc.linha();
-//                // dorme por 5 segundos
-//                TimeUnit.SECONDS.sleep(1);
-//                System.out.print("ENCERRANDO");
-//                TimeUnit.SECONDS.sleep(1);
-//                System.out.print(".");
-//                TimeUnit.SECONDS.sleep(1);
-//                System.out.print(".");
-//                TimeUnit.SECONDS.sleep(1);
-//                System.out.print(".");
-//                TimeUnit.SECONDS.sleep(1);
-//                System.out.println("FIM DO PROGRAMA!!");
-//                TimeUnit.SECONDS.sleep(1);
-//                calc.linha();
-//                TimeUnit.SECONDS.sleep(1);
+                // dorme por 5 segundos
+                TimeUnit.SECONDS.sleep(1);
+                System.out.print("ENCERRANDO");
+                TimeUnit.SECONDS.sleep(1);
+                System.out.print(".");
+                TimeUnit.SECONDS.sleep(1);
+                System.out.print(".");
+                TimeUnit.SECONDS.sleep(1);
+                System.out.print(".");
+                TimeUnit.SECONDS.sleep(1);
+                System.out.println("FIM DO PROGRAMA!!");
+                TimeUnit.SECONDS.sleep(1);
+                calc.linha();
+                TimeUnit.SECONDS.sleep(1);
                 break;
             }
         }
