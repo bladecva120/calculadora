@@ -14,6 +14,7 @@ import java.util.Locale;
 import calc_entidade.Calc;
 import tab_entidade.Tabuada;
 import imc_entidade.Imc;
+import media_entidade.Media;
 
 public class Calculadora {
 
@@ -24,6 +25,7 @@ public class Calculadora {
         Calc calc = new Calc();
         Tabuada tab = new Tabuada();
         Imc imc = new Imc();
+        Media media = new Media();
         System.out.println("*** JAVA APPLICATION ***");
         calc.linhaApp();
         while (true) {
@@ -31,6 +33,7 @@ public class Calculadora {
                     "[1]-Calculadora\n"
                     + "[2]-Mostrar tabuada\n"
                     + "[3]-Calcular IMC\n"
+                    + "[4]-Média de nota\n"
                     + "[0]-Sair\n"
                     + "O que deseja fazer?: ");
             int opc = sc.nextInt();
@@ -105,7 +108,7 @@ public class Calculadora {
                     calc.linha();
                 }
 
-            }else if (opc == 3){
+            } else if (opc == 3) {
                 calc.linha();
                 System.out.print("Informe seu peso: ");
                 imc.peso = sc.nextDouble();
@@ -114,21 +117,33 @@ public class Calculadora {
                 calc.linha();
                 System.out.printf("IMC: %.2f%n", imc.imcCalc());
                 calc.linha();
+            } else if (opc == 4) {
+                calc.linha();
+                System.out.print("Informe a quantidade de notas: ");
+                media.quant = sc.nextInt();
+                for (int i = 1; i <= media.quant; i++) {
+                    System.out.printf("informe a %dª nota: ", i);
+                    media.n1 = sc.nextDouble();
+                    media.soma += media.n1;
+                }
+                System.out.printf("Média de notas: %.2f%n", media.calcMedia());
+                calc.linha();
             } else if (opc == 0) {
                 calc.linha();
-                // dorme por 5 segundos
-                TimeUnit.SECONDS.sleep(1);
-                System.out.print("ENCERRANDO");
-                TimeUnit.SECONDS.sleep(1);
-                System.out.print(".");
-                TimeUnit.SECONDS.sleep(1);
-                System.out.print(".");
-                TimeUnit.SECONDS.sleep(1);
-                System.out.print(".");
-                TimeUnit.SECONDS.sleep(1);
-                System.out.println("FIM DO PROGRAMA!!");
-                TimeUnit.SECONDS.sleep(1);
-                calc.linha();
+//                // dorme por 5 segundos
+//                TimeUnit.SECONDS.sleep(1);
+//                System.out.print("ENCERRANDO");
+//                TimeUnit.SECONDS.sleep(1);
+//                System.out.print(".");
+//                TimeUnit.SECONDS.sleep(1);
+//                System.out.print(".");
+//                TimeUnit.SECONDS.sleep(1);
+//                System.out.print(".");
+//                TimeUnit.SECONDS.sleep(1);
+//                System.out.println("FIM DO PROGRAMA!!");
+//                TimeUnit.SECONDS.sleep(1);
+//                calc.linha();
+//                TimeUnit.SECONDS.sleep(1);
                 break;
             }
         }
