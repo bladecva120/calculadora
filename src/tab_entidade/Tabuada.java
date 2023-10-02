@@ -11,7 +11,7 @@ public class Tabuada {
     }
 
     public void subtração() {
-        for (int i = 0; i < 10 + 1; i++) {
+        for (int i = 0; i <= 10 + 1; i++) {
             if (i < n1) {
                 for (i = n1; i < 10 + n1; i++) {
                     System.out.println(i + " - " + (int) n1 + " = " + (i - (int) n1));
@@ -30,8 +30,8 @@ public class Tabuada {
     }
 
     public void divisão() {
-        for (int i = 0; i <= 10; i++) {
-            System.out.printf(i + " : " + n1 + " = %.2f%n", (i / (double) n1));
+        for (int i = 1; i <= 10; i++) {
+            System.out.printf(n1 + " : " + i + " = %.2f%n", (n1 / (double) i));
         }
     }
 }

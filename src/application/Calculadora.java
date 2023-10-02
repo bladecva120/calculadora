@@ -11,6 +11,7 @@ import calc_entidade.Calc;
 import tab_entidade.Tabuada;
 import imc_entidade.Imc;
 import media_entidade.Media;
+import bhask_entidade.Bhaskara;
 
 public class Calculadora {
 
@@ -20,14 +21,15 @@ public class Calculadora {
         Calc calc = new Calc();
         Tabuada tab = new Tabuada();
         Imc imc = new Imc();
-        System.out.println("*** JAVA APPLICATION ***");
-        calc.linhaApp();
         while (true) {
+            System.out.println("*** JAVA APPLICATION ***");
+            calc.linhaApp();
             System.out.print(
                     "[1]-Calculadora\n"
                     + "[2]-Mostrar tabuada\n"
                     + "[3]-Calcular IMC\n"
                     + "[4]-Média de nota\n"
+                    + "[5]-Bháskara\n"
                     + "[0]-Sair\n"
                     + "O que deseja fazer?: ");
             int opc = sc.nextInt();
@@ -49,6 +51,7 @@ public class Calculadora {
                     System.out.printf("Adição: %.2f%n", calc.adição());
                     calc.linha();
                 } else if (resp == 's') {
+                    calc.linha();
                     System.out.print("Informe o 1º número: ");
                     calc.n1 = sc.nextDouble();
                     System.out.print("Informe o 2º número: ");
@@ -56,6 +59,7 @@ public class Calculadora {
                     System.out.printf("Subtração: %.2f%n", calc.subtração());
                     calc.linha();
                 } else if (resp == 'm') {
+                    calc.linha();
                     System.out.print("Informe o 1º número: ");
                     calc.n1 = sc.nextDouble();
                     System.out.print("Informe o 2º número: ");
@@ -63,6 +67,7 @@ public class Calculadora {
                     System.out.printf("Multiplicação: %.2f%n", calc.multiplicação());
                     calc.linha();
                 } else if (resp == 'd') {
+                    calc.linha();
                     System.out.print("Informe o 1º número: ");
                     calc.n1 = sc.nextDouble();
                     System.out.print("Informe o 2º número: ");
@@ -115,6 +120,7 @@ public class Calculadora {
                 double soma = 0;
                 System.out.print("Informe a quantidade de notas: ");
                 int quant = sc.nextInt();
+                calc.linha();
                 for (int i = 1; i <= quant; i++) {
                     System.out.printf("informe a %dª nota: ", i);
                     double n1 = sc.nextDouble();
@@ -122,6 +128,29 @@ public class Calculadora {
                 }
                 Media media = new Media(quant, soma);
                 System.out.printf("Média de notas: %.2f%n", media.calcMedia());
+                calc.linha();
+            } else if (opc == 5) {
+                calc.linha();
+                System.out.print("Informe o valor de A: ");
+                int A = sc.nextInt();
+                System.out.print("Informe o valor de B: ");
+                int B = sc.nextInt();
+                System.out.print("Informe o valor de C: ");
+                int C = sc.nextInt();
+                Bhaskara bhask = new Bhaskara(A, B, C);
+                calc.linha();
+                System.out.println("Valor de Delta: " + (int) bhask.delta());
+                if (bhask.delta() > 0) {
+                    System.out.println("Equação com 2 raízes reais e diferentes");
+                } else if (bhask.delta() == 0) {
+                    System.out.println("Equação com 2 raízes reais e iguais");
+                } else if (bhask.delta() < 0) {
+                    System.out.println("Equação não possui raízes reais");
+                    calc.linha();
+                    continue;
+                }
+                System.out.println("Valor de X1: " + bhask.valorX1());
+                System.out.println("Valor de X2: " + bhask.valorX2());
                 calc.linha();
             } else if (opc == 0) {
                 calc.linha();
